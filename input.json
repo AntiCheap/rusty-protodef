@@ -7,28 +7,67 @@
                 "container",
                 [
                     {
-                        "name": "alfa",
-                        "type": "f32"
+                        "name": "sub",
+                        "type": "cstring"
                     },
                     {
-                        "name": "beta",
-                        "type": "u8"
+                        "name": "zero",
+                        "type": [
+                            "count",
+                            {
+                                "type": "f64",
+                                "countFor": "sub"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "alfa",
+                        "type": [
+                            "container",
+                            [
+                                {
+                                    "name": "beta",
+                                    "type": "u8"
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "name": "alfetta",
+                        "type": [
+                            "container",
+                            [
+                                {
+                                    "name": "beta",
+                                    "type": "u8"
+                                }
+                            ]
+                        ]
                     },
                     {
                         "name": "gamma",
+                        "type": "u8"
+                    },
+                    {
+                        "anon": false,
+                        "name": "delta",
                         "type": [
                             "mapper",
                             {
-                                "type": "i8",
+                                "type": "u8",
                                 "mappings": {
                                     "0": "zero",
-                                    "10": "ten"
+                                    "1": "one"
                                 }
                             }
                         ]
                     }
                 ]
             ]
+        },
+        {
+            "name": "omega",
+            "type": "i8"
         }
     ]
 ]

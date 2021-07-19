@@ -30,7 +30,9 @@ function typeCompiler(data) {
         }
     });
 
-    return new Path().compile(data);
+    const code = new Path().compile(data);
+
+    return compiler.finalize(code);
 }
 
 const test = typeCompiler(require("./input.json"));

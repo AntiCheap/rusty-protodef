@@ -4,6 +4,7 @@ module.exports = (methods) => class Path {
     constructor(value) {
         this.value = value || this.first().value;
         this.depth = this.value.filter((x) => x.scope).length;
+        this.root = `root_${this.depth}`;
 
         //Path is backwards to simplify finding last.
         const weak = (x) => x.root || x.scope;
@@ -12,6 +13,8 @@ module.exports = (methods) => class Path {
 
         this.under = list.map((x) => x.field).reverse();
         if (list.some((x) => x.jump)) this.under = false;
+        this.last = this.under && this.under.slice(-1)[0];
+        this.isScope = this.under && !this.under.length;
 
         Object.assign(this, methods);
     }
