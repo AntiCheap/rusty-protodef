@@ -3,7 +3,7 @@
 
 > **:warning: Warning**: This documentation is for *minecraft-data protodef*, different from [protodefc](https://github.com/ProtoDef-io/protodefc) despite same name and purpose.
 
-[ProtoDef](https://github.com/ProtoDef-io/ProtoDef) is a project to simplify data parsing and serialization, started as a contribution to PrismarineJS. Protodef allows to describe structured data of internet protocols or file formats in a concise form using JSON. This can be used by language specific implementations to obtain actual code to parse and serialize data. Unlike [ProtoBuf]() this project is meant to allow easier creation of custom types and more flexibility. The first use for this was converting Minecraft's raw packets into objects and the other way round. Given the size of the game's protocol and its many existing versions, writing code by hand wouldn't be feasible. 
+[ProtoDef](https://github.com/ProtoDef-io/ProtoDef) is a project to simplify data parsing and serialization, started as a contribution to PrismarineJS. Protodef allows to describe structured data of internet protocols or file formats in a concise form using JSON. This can later be used by different implementations to obtain language specific code that parses and serializes data. Unlike [ProtoBuf]() this project is meant to allow easier creation of custom types and more flexibility. The first use for this was converting Minecraft's raw packets into objects and the other way round. Given the size of the game's protocol and its many existing versions, writing code by hand wouldn't be feasible. 
 
 #### Projects
 * **[protodef-yaml](https://extremeheat.github.io/protodef-yaml/)** compiles a more readable format into minecraft data protodef.
