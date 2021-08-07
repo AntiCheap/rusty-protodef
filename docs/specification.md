@@ -1,12 +1,14 @@
+
 ## Purpose
-> ProtoDef specification: describe your protocol, and read it with ease. -An unknown liar.
 
-[ProtoDef](https://github.com/ProtoDef-io/ProtoDef) is a format to define protocols in json to parse and serialize streams. This documentation is for *minecraft-data protodef*, not to be confused with [protodefc](https://github.com/ProtoDef-io/protodefc) despite similar name and purpose. The project initially started as a contribution to PrismarineJS to produce JavaScript objects from Minecraft's packets. It has then been implemented in two ways:
+> **:warning: Warning**: This documentation is for *minecraft-data protodef* which is different from [protodefc](https://github.com/ProtoDef-io/protodefc) even if both have a similar name and solve the same problem. 
 
-* **Interpreter**: reading the protocol together with the data. (original)
-* **Compiler**: producing more efficient code ahead of time. (Karang's improvement)
+[ProtoDef](https://github.com/ProtoDef-io/ProtoDef) is a project to simplify data parsing and serialization, started as a contribution to PrismarineJS. Protodef allows to describe structured data of internet protocols or file formats in a concise form using JSON. This can be used by language specific implementations to obtain actual code to parse and serialize data. Unlike [ProtoBuf]() this project is meant to allow easier creation of custom types and more flexibility. The first use for this was converting Minecraft's raw packets into objects and the other way round. Given the size of the game's protocol and its many existing versions, writing code by hand wouldn't be feasible. 
 
-Different languages can make use of enums and store data differently. In order to be compliant parsed data needs to have a similar structure. The core idea is to build complex types out of simpler ones, the starting building blocks implemented by default are called *natives*.
+#### Projects
+* **[protodef-yaml](https://extremeheat.github.io/protodef-yaml/)** compiles a more readable format into minecraft data protodef.
+* **[node-protodef](https://github.com/ProtoDef-io/node-protodef)** is the first JavaScript implementation (compiled and interpreted).
+* **[minecraft-data](https://github.com/PrismarineJS/minecraft-data)** uses protodef to speficy the game's protocol in each version.
 
 ## Natives
 
@@ -18,8 +20,12 @@ Different languages can make use of enums and store data differently. In order t
 
 #### Primitives:
 * **bool**: boolean value, zero or one byte.
+* * fails when insufficient bytes.
+* * fails when not 0x00 or 0x01.
 * **cstring**: null terminated utf-8 string.
+* * fails when 0x00 is not found.
 * **void**: only usable inside switch.
+* * never fails.
 #### Countables:
 * **array**: repetition of another type.
 * **buffer**: chunk of binary data.
