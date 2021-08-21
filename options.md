@@ -1,0 +1,10 @@
+
+* switch: ({ ?compareTo: Reference, ?compareToValue: String, fields: { [String]: Type, ... }, ?default: Type })
+* option: (Type)
+* array: ({ type: Type, ?countType: Type, ?count: Counter })
+* container: ([ { name: String, type: Type }, ... ])
+* count: ({ type: Type, countFor: Reference })
+* buffer: ({ countType: Type, ?count: Counter, ?rest: Boolean })
+* bitfield: ([ { name: String, size: Number, ?signed: Boolean }, ... ])
+* mapper: ({ type: Type, mappings: { String: String, ... } })
+* pstring: ({ countType: Type, ?count: Counter })
